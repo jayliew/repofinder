@@ -43,6 +43,7 @@ class RepoResultsViewController: UIViewController {
             // Print the returned repositories to the output window
             for repo in newRepos {
                 print(repo)
+                self.repos.append(repo)
             }   
 
             MBProgressHUD.hideHUDForView(self.view, animated: true)
