@@ -61,7 +61,10 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
 //        cell.descriptionLabel.numberOfLines = 0
         
         cell.ownerLabel.text = repo.ownerHandle
+        
         cell.forksLabel.text = String(repo.forks!)
+//        cell.forksLabel.sizeToFit()
+        
         cell.starsLabel.text = String(repo.stars!)
         
         return cell
