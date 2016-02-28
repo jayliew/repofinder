@@ -55,12 +55,14 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         
         cell.avatarImageView.setImageWithURL(NSURL(string: repo.ownerAvatarURL!)!)
         cell.nameLabel.text = repo.name
+        cell.nameLabel.sizeToFit()
         
         cell.descriptionLabel.text = repo.repoDescription
-        cell.descriptionLabel.sizeToFit()
+//        cell.descriptionLabel.sizeToFit()
 //        cell.descriptionLabel.numberOfLines = 0
         
         cell.ownerLabel.text = repo.ownerHandle
+//        cell.ownerLabel.sizeToFit()
         
         cell.forksLabel.text = String(repo.forks!)
 //        cell.forksLabel.sizeToFit()
