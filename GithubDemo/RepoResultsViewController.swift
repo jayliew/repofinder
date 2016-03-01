@@ -24,8 +24,8 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
 
         reposTableView.dataSource = self
         reposTableView.delegate = self
-        reposTableView.estimatedRowHeight = 300
-        reposTableView.rowHeight = UITableViewAutomaticDimension
+//        reposTableView.estimatedRowHeight = 400
+//        reposTableView.rowHeight = UITableViewAutomaticDimension
         
         // Initialize the UISearchBar
         searchBar = UISearchBar()
