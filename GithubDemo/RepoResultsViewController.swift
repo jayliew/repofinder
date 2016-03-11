@@ -61,7 +61,6 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         if let settingsVC = segue.sourceViewController as? SettingsViewController{
             self.preferences = settingsVC.preferencesFromTableData()
         }
-        print("SAVED: " + String(preferences.minStarRating))
     }
     
     // MARK: UITableViewDataSource
