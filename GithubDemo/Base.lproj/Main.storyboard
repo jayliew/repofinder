@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Repo Results View Controller-->
@@ -216,6 +217,35 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y8Q-ck-eyA" id="zUi-FQ-1N4">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min. Repo Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg9-H6-A7M">
+                                                    <rect key="frame" x="8" y="11.5" width="129.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="tRt-fe-vV0">
+                                                    <rect key="frame" x="440" y="7" width="154" height="31"/>
+                                                    <connections>
+                                                        <action selector="sliderValueChanged:" destination="dd1-6R-L0S" eventType="valueChanged" id="1Ft-K9-SId"/>
+                                                    </connections>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0A-w5-WAe">
+                                                    <rect key="frame" x="423" y="11" width="11" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tRt-fe-vV0" firstAttribute="width" secondItem="zUi-FQ-1N4" secondAttribute="width" multiplier="0.25" id="1eN-z2-tjA"/>
+                                                <constraint firstItem="tRt-fe-vV0" firstAttribute="centerY" secondItem="zUi-FQ-1N4" secondAttribute="centerY" id="8tx-Iw-xaM"/>
+                                                <constraint firstItem="tRt-fe-vV0" firstAttribute="trailing" secondItem="zUi-FQ-1N4" secondAttribute="trailingMargin" id="EcZ-9D-9xV"/>
+                                                <constraint firstItem="eg9-H6-A7M" firstAttribute="leading" secondItem="zUi-FQ-1N4" secondAttribute="leadingMargin" id="VQD-7a-ClI"/>
+                                                <constraint firstItem="tRt-fe-vV0" firstAttribute="leading" secondItem="p0A-w5-WAe" secondAttribute="trailing" constant="8" id="gv5-id-ZD4"/>
+                                                <constraint firstItem="p0A-w5-WAe" firstAttribute="centerY" secondItem="zUi-FQ-1N4" secondAttribute="centerY" id="kl6-Gv-dRs"/>
+                                                <constraint firstItem="eg9-H6-A7M" firstAttribute="centerY" secondItem="zUi-FQ-1N4" secondAttribute="centerY" id="nks-x4-aKc"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9yY-E7-dVV">
@@ -241,6 +271,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sliderLabel" destination="p0A-w5-WAe" id="QYp-YV-2Sy"/>
+                        <outlet property="starSlider" destination="zUi-FQ-1N4" id="i9Z-Uk-ltw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2y-WL-cUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
