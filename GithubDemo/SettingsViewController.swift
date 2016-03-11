@@ -13,14 +13,27 @@ class SettingsViewController: UITableViewController {
     // MARK: Outlets
     
     @IBOutlet weak var sliderLabel: UILabel!
-    @IBOutlet weak var starSlider: UIView!
+    @IBOutlet weak var starSlider: UISlider!
+    
+    // MARK: Properties
+    
+    var currentPrefs: Preferences!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        currentPrefs = currentPrefs ?? Preferences()
+        
+        starSlider.value = Float(currentPrefs.minStarRating)
+        sliderValueChanged(starSlider)
     }
 
+    func preferencesFromTableData() -> Preferences{
+        let newPrefs = Preferences()
+        newPrefs.minStarRating = Int(starSlider.value)
+        return newPrefs
+    }
+    
     @IBAction func sliderValueChanged(sender: UISlider) {
         let currentValue = Int(sender.value)
         sliderLabel.text = String(currentValue)

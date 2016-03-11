@@ -9,16 +9,24 @@
 import UIKit
 import MBProgressHUD
 
+class Preferences {
+    var minStarRating = 4
+}
+
 // Main ViewController
 class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    // MARK: Outlets
+
+    @IBOutlet weak var reposTableView: UITableView!
 
     // MARK: Properties
     
     var searchBar: UISearchBar!
     var searchSettings = GithubRepoSearchSettings()
     var repos: [GithubRepo]!
-    @IBOutlet weak var reposTableView: UITableView!
-    
+    var preferences: Preferences = Preferences()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,10 +47,21 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         doSearch()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "settingsSegue" {
+            let navController = segue.destinationViewController as! UINavigationController
+            let settingsVC = navController.topViewController as! SettingsViewController
+            settingsVC.currentPrefs = self.preferences
+        }
+    }
+    
     // MARK: Actions
     
     @IBAction func didSaveSettings(segue: UIStoryboardSegue){
-        print("YAHOOOOO BITCH")
+        if let settingsVC = segue.sourceViewController as? SettingsViewController{
+            self.preferences = settingsVC.preferencesFromTableData()
+        }
+        print("SAVED: " + String(preferences.minStarRating))
     }
     
     // MARK: UITableViewDataSource

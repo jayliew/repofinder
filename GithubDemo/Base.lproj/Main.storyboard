@@ -149,31 +149,6 @@
             </objects>
             <point key="canvasLocation" x="819" y="-557"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="rla-cQ-PSz">
-            <objects>
-                <viewController id="Zww-wk-NWE" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nbs-HK-orG"/>
-                        <viewControllerLayoutGuide type="bottom" id="0tW-b5-YNC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gU9-06-w22">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="a30-uR-nnp">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rlL-1I-BQU">
-                            <connections>
-                                <action selector="cancelToReposResultsViewController:" destination="Zww-wk-NWE" id="UaH-7T-Mkr"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sen-X2-z7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2756" y="183"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FpP-oR-azb">
             <objects>
@@ -272,37 +247,19 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="80w-92-O1Y">
                             <connections>
-                                <segue destination="hEJ-ge-NaJ" kind="unwind" unwindAction="didSaveSettings:" id="cuV-vm-zxu"/>
+                                <segue destination="hEJ-ge-NaJ" kind="unwind" unwindAction="didSaveSettings:" id="eih-b0-3fW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="sliderLabel" destination="p0A-w5-WAe" id="QYp-YV-2Sy"/>
-                        <outlet property="starSlider" destination="zUi-FQ-1N4" id="i9Z-Uk-ltw"/>
+                        <outlet property="starSlider" destination="tRt-fe-vV0" id="AxC-7a-kQw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2y-WL-cUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hEJ-ge-NaJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2138" y="-557"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="OTq-AX-RdW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fb3-EJ-cMD" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="puc-as-buN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Zww-wk-NWE" kind="relationship" relationship="rootViewController" id="RCx-qD-ISp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KKt-FE-pNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2052" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PV1-bJ-QpS">
