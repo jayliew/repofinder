@@ -39,6 +39,12 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         doSearch()
     }
     
+    // MARK: Actions
+    
+    @IBAction func didSaveSettings(segue: UIStoryboardSegue){
+        print("YAHOOOOO BITCH")
+    }
+    
     // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
