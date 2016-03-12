@@ -12,7 +12,13 @@ import MBProgressHUD
 class Preferences {
     var minStarRating = 4
     var languageFilter = true
-    var languages: [String] = ["python", "javascript", "django", "swift"]
+    var languages: Dictionary<String, Bool> = [
+        "python": true,
+        "javascript": true,
+        "django": true,
+        "swift": true
+    ]
+    
 }
 
 // Main ViewController
