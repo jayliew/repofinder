@@ -57,10 +57,10 @@ class GithubRepo: CustomStringConvertible {
         let manager = AFHTTPRequestOperationManager()
         let params = queryParamsWithSettings(settings);
         
-        manager.GET(reposUrl, parameters: params, success: { (operation ,responseObject) -> Void in
-            if let results = responseObject["items"] as? NSArray {
+        manager.GET(reposUrl, parameters: params, success: { (operation, responseObject) -> Void in
+            if let results = responseObject["items"] as? [NSDictionary] {
                 var repos: [GithubRepo] = []
-                for result in results as! [NSDictionary] {
+                for result in results {
                     repos.append(GithubRepo(jsonResult: result))
                 }
                 successCallback(repos)

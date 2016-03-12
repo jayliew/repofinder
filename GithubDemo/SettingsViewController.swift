@@ -14,6 +14,7 @@ class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var sliderLabel: UILabel!
     @IBOutlet weak var starSlider: UISlider!
+    @IBOutlet weak var languageFilterSwitch: UISwitch!
     
     // MARK: Properties
     
@@ -25,12 +26,14 @@ class SettingsViewController: UITableViewController {
         currentPrefs = currentPrefs ?? Preferences()
         
         starSlider.value = Float(currentPrefs.minStarRating)
-        sliderValueChanged(starSlider)
+        languageFilterSwitch.on = currentPrefs.languageFilter
+        sliderValueChanged(self.starSlider)
     }
 
     func preferencesFromTableData() -> Preferences{
         let newPrefs = Preferences()
         newPrefs.minStarRating = Int(starSlider.value)
+        newPrefs.languageFilter = self.languageFilterSwitch.on
         return newPrefs
     }
     

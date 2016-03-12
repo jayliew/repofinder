@@ -11,6 +11,8 @@ import MBProgressHUD
 
 class Preferences {
     var minStarRating = 4
+    var languageFilter = true
+    var languages: [String] = ["python", "javascript", "django", "swift"]
 }
 
 // Main ViewController
@@ -82,15 +84,8 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         cell.nameLabel.sizeToFit()
         
         cell.descriptionLabel.text = repo.repoDescription
-//        cell.descriptionLabel.sizeToFit()
-//        cell.descriptionLabel.numberOfLines = 0
-        
         cell.ownerLabel.text = repo.ownerHandle
-//        cell.ownerLabel.sizeToFit()
-        
         cell.forksLabel.text = String(repo.forks!)
-//        cell.forksLabel.sizeToFit()
-        
         cell.starsLabel.text = String(repo.stars!)
         
         return cell
