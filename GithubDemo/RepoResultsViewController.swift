@@ -69,6 +69,8 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         if let settingsVC = segue.sourceViewController as? SettingsViewController{
             self.preferences = settingsVC.preferencesFromTableData()
         }
+        
+        self.reposTableView.reloadData()
     }
     
     // MARK: UITableViewDataSource
@@ -93,8 +95,30 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         cell.ownerLabel.text = repo.ownerHandle
         cell.forksLabel.text = String(repo.forks!)
         cell.starsLabel.text = String(repo.stars!)
+        cell.language = repo.language
+        
+        cell.clipsToBounds = true
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let repo = self.repos[indexPath.row]
+        
+        if let repo_lang = repo.language?.lowercaseString {
+            print(repo.name! + " --> " + repo_lang)
+            
+            if preferences.languages[repo_lang] == true {
+                print("showing " + repo.name!)
+                return UITableViewAutomaticDimension
+            }
+        }else{
+            print(repo.name! + ": " + " no lang")
+            return UITableViewAutomaticDimension
+        }
+        
+        print("hiding " + repo.name!)
+        return 0.0
     }
 
     // Perform the search.
@@ -109,7 +133,8 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
             
             // Print the returned repositories to the output window
             for repo in newRepos {
-                print(repo)
+                
+                // filter lang here
                 self.repos.append(repo)
             }   
 

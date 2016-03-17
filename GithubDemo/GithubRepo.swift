@@ -22,6 +22,7 @@ class GithubRepo: CustomStringConvertible {
     var stars: Int?
     var forks: Int?
     var repoDescription: String?
+    var language: String?
     
     // Initializes a GitHubRepo from a JSON dictionary
     init(jsonResult: NSDictionary) {
@@ -35,6 +36,10 @@ class GithubRepo: CustomStringConvertible {
         
         if let forks = jsonResult["forks_count"] as? Int? {
             self.forks = forks
+        }
+        
+        if let language = jsonResult["language"] as? String {
+            self.language = language.lowercaseString
         }
 
         if let description = jsonResult["description"] as? String? {

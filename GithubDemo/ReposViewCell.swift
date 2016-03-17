@@ -12,6 +12,10 @@ class ReposViewCell: UITableViewCell {
 
     // MARK: Properties
     
+    var language: String?
+    
+    // MARK: Outlets
+    
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var forksImageView: UIImageView!
     @IBOutlet weak var starsImageView: UIImageView!
