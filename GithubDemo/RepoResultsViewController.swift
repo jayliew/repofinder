@@ -10,7 +10,7 @@ import UIKit
 import MBProgressHUD
 
 class Preferences {
-    var minStarRating = 4
+    var minStarRating = 30000
     var languageFilter = true
     var languages: Dictionary<String, Bool> = [
         "python": true,
@@ -31,12 +31,14 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: Properties
     
     var searchBar: UISearchBar!
+    var preferences: Preferences = Preferences()
     var searchSettings = GithubRepoSearchSettings()
     var repos: [GithubRepo]!
-    var preferences: Preferences = Preferences()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchSettings.minStars = preferences.minStarRating
 
         reposTableView.dataSource = self
         reposTableView.delegate = self
@@ -68,9 +70,10 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func didSaveSettings(segue: UIStoryboardSegue){
         if let settingsVC = segue.sourceViewController as? SettingsViewController{
             self.preferences = settingsVC.preferencesFromTableData()
+            self.searchSettings.minStars = self.preferences.minStarRating
         }
         
-        self.reposTableView.reloadData()
+        doSearch()
     }
     
     // MARK: UITableViewDataSource
@@ -132,7 +135,7 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
             
             // Print the returned repositories to the output window
             for repo in newRepos {
-                
+                print(repo.stars)
                 // filter lang here
                 self.repos.append(repo)
             }   

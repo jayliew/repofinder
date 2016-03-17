@@ -186,12 +186,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min. Repo Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg9-H6-A7M">
-                                                    <rect key="frame" x="8" y="12" width="130" height="20"/>
+                                                    <rect key="frame" x="8" y="12" width="130" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="tRt-fe-vV0">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30000" minValue="5000" maxValue="90000" translatesAutoresizingMaskIntoConstraints="NO" id="tRt-fe-vV0">
                                                     <rect key="frame" x="440" y="7" width="154" height="31"/>
                                                     <connections>
                                                         <action selector="sliderValueChanged:" destination="dd1-6R-L0S" eventType="valueChanged" id="1Ft-K9-SId"/>
