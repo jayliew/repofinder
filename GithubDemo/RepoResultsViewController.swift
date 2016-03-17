@@ -105,19 +105,18 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let repo = self.repos[indexPath.row]
         
-        if let repo_lang = repo.language?.lowercaseString {
-            print(repo.name! + " --> " + repo_lang)
-            
-            if preferences.languages[repo_lang] == true {
-                print("showing " + repo.name!)
-                return UITableViewAutomaticDimension
-            }
-        }else{
-            print(repo.name! + ": " + " no lang")
+        if self.preferences.languageFilter == false {
             return UITableViewAutomaticDimension
         }
         
-        print("hiding " + repo.name!)
+        if let repo_lang = repo.language?.lowercaseString {
+            if preferences.languages[repo_lang] == true {
+                return UITableViewAutomaticDimension
+            }
+        }else{
+            return UITableViewAutomaticDimension
+        }
+        
         return 0.0
     }
 
